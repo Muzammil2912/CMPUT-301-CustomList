@@ -1,4 +1,5 @@
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import com.example.simpleparadox.listycity.City;
@@ -27,10 +28,17 @@ public class CustomListTest {
     }
 
     @Test
-    public void hasCity(){
+    public void hasCityTest(){
         City city =new City("Halifax","NS");
         list.addCity(city);
         assertTrue(list.hasCity(city));
     }
 
+    @Test
+    public void deleteCityTest(){
+        City city =new City("Halifax","NS");
+        list.addCity(city);
+        list.deleteCity(city);
+        assertFalse(list.hasCity(city));
+    }
 }
